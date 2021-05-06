@@ -1,6 +1,14 @@
 const newdiv = document.createElement("div");
 const newdiv1 = document.createElement("div");
 const te =document.createElement('h2');
+const btn =document.createElement('button');
+const out =document.createElement('h3');
+const user = document.createElement('h3');
+const input =document.createElement('input');
+document.body.append(user);
+document.body.append(input);
+user.textContent = "Enter your name"
+
 
 document.body.append(newdiv1);
 newdiv1.appendChild(te);
@@ -45,19 +53,54 @@ var col=res[Math.floor(Math.random()*8) ] ;
 te.textContent ="Find this color: " + col ;
 console.log(col);
 
-newdiv.addEventListener('click',(event)=>{
-    // console.log(event.target)
-    console.log(event.target.style.backgroundColor)
-    te.textContent= "You selected Color: " +event.target.style.backgroundColor;
-    if(event.target.style.backgroundColor === col){
-        alert("Success");
-    }
-    else{
-    event.target.style.display="none";
-    }
+
+var logg=[];
+var res=8;
+
+// setTimeout(()=>{
+//     window.location.reload()
+// },50000);
+
+
+
+input.addEventListener("cuechange",(event)=>{
+    console.log("event")
 })
 
 
+
+newdiv.addEventListener('click',(event)=>{
+   
+    logg.push(event.target.style.backgroundColor)
+    // console.log(event.target.style.backgroundColor)
+    // te.textContent= "You selected Color: " +event.target.style.backgroundColor;
+    if(event.target.style.backgroundColor === col){
+        // res=8;
+        alert("Success");
+        for(var i=1;i<=8;i++){
+            div1=cdiv();
+            res.push(div1.style.backgroundColor);
+            
+        }
+    }
+    else{
+        res=res-1;
+    event.target.style.display="none";
+    }
+    console.log(logg);
+})
+document.body.append(btn);
+document.body.append(out);
+const counter = document.createElement("h4");
+document.body.append(counter);
+
+btn.textContent ="Get Report";
+btn.addEventListener('dblclick',()=>{
+    console.log(input.value);
+   
+    counter.textContent = "Your score : "+ res + "  " + input.value;
+// out.textContent ="You selected :" + logg ;
+})
 
 
 
