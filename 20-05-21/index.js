@@ -1,3 +1,10 @@
+//Title : Looping
+//Description: Small code snippet to show looping in js
+//Author: Sujanram B
+//Date : 20-05-21
+
+
+
 var val=1;
 let arr= [2,3,4,'abc',true,val]
 
